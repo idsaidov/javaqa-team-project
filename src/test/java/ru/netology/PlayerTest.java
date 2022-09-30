@@ -1,6 +1,7 @@
 package ru.netology;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class PlayerTest {
 =======
 import org.junit.jupiter.api.Test;
@@ -108,4 +109,7 @@ public class PlayerTest {
 
     }
 >>>>>>> 1a7e4cd (Add Java Test Class)
+=======
+public class PlayerTest {
+>>>>>>> origin/Player
 }
