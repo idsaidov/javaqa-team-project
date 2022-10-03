@@ -29,8 +29,9 @@ public class GameStoreTest {
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
         Game game2 = store.publishGame("Страйк", "Файты");
         Game game3 = new Game("Квейк", "Стрелялки", store);
+assertFalse(store.containsGame(game3));
 
-        assertFalse(store.containsGame(game2));
+
     }
 
     @Test // Кто больше всего играл часов
@@ -93,10 +94,10 @@ public class GameStoreTest {
 
         Game game = store.publishGame("Дота 2", "Моба");
 
-        store.addPlayTime("Player9", 0);
+        store.addPlayTime("Player9", 1);
 
         String actual = store.getMostPlayer();
-        String expected = null;
+        String expected = "Player9";
         assertEquals(expected, actual);
     }
     @Test // Получиться сумма сыгранного времени
@@ -107,7 +108,7 @@ public class GameStoreTest {
         store.addPlayTime("Player12", 1);
 
         int actual = store.getSumPlayedTime();
-        int expected = 5;
+        int expected = 12;
         assertEquals(expected, actual);
     }
     @Test // Вернуть ноль и получить сумму сыгранного времени
