@@ -33,9 +33,9 @@ public class Player {
     public int play(Game game, int hours) {
         game.getStore().addPlayTime(name, hours);
         if (playedTime.containsKey(game)) {
-            playedTime.put(game, playedTime.get(game));
+            playedTime.put(game, playedTime.get(game) + hours);
         } else {
-            playedTime.put(game, hours);
+            throw new RuntimeException("Выбранная игра " + game.getTitle() + " не была установлена");
         }
         return playedTime.get(game);
     }
@@ -56,7 +56,15 @@ public class Player {
 
     /** Метод принимает жанр и возвращает игру этого жанра, в которую играли больше всего
      Если в игры этого жанра не играли, возвращается null */
-    public Game mostPlayerByGenre(String genre) {
-        return null;
+    public String mostPlayerByGenre(String genre) {
+        int mostTime = 0;
+        String mostGame = null;
+        for (Game game : playedTime.keySet()) {
+            if (genre.equals(game.getGenre()) && mostTime < playedTime.get(game)) {
+                mostTime = playedTime.get(game);
+                mostGame = game.getTitle();
+            }
+        }
+        return mostGame;
     }
 }

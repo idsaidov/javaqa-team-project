@@ -5,10 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class PlayerTest {
-import org.junit.jupiter.api.Test;
-
-
     public class PlayerTest {
         @Test // Тест добавления нового игрока
         public void shouldInstallPlayer() {
@@ -89,8 +85,8 @@ import org.junit.jupiter.api.Test;
             player.installGame(game);
             player.play(game, 3);
 
-            Game expected = game;
-            Game actual = player.mostPlayerByGenre("Аркады");
+            String expected = "Нетология Баттл Онлайн";
+            String actual = player.mostPlayerByGenre("Аркады");
             assertEquals(expected, actual);
         }
 
@@ -105,11 +101,8 @@ import org.junit.jupiter.api.Test;
             player.play(game, 0);
 
             Game expected = null;
-            Game actual = player.mostPlayerByGenre("Аркады");
+            String actual = player.mostPlayerByGenre("Аркады");
             assertEquals(expected, actual);
 
         }
-
-        public class PlayerTest {
-
-        }
+    }
